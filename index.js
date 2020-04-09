@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.render('home', data)
 })
 
-
+// Create an array of Pokemon.
 const pokemon = [
   { name: 'pikachu',
   type: ['electric'],
@@ -29,19 +29,29 @@ const pokemon = [
   },
   { name: 'psyduck',
   type: ['psychic'],
-  cute: true },
+  cute: true
+  },
   { name: 'Sandshrew',
-  type: ['ground', 'earth','whatever'],
-  cute: false }
+  type: ['ground',],
+  cute: false 
+  },
+  { name: 'Vulpix',
+  type: ['fire'],
+  cute: true 
+  }
   ]
 
 console.log('pokemons: ', pokemon)
 
 app.get('/:name', (req, res) => {
+  // Data we want to pass to our view (into react)
+  // We put into an object
   const data = { 
     name: req.params.name, 
     pokemon: pokemon
   }
+  // Tell the renderer the view file we want to use
+  // and the data for the view file.
   res.render('home', data)
 })
 
